@@ -41,26 +41,26 @@ This project enforces a strict separation between:
 <details>
 <summary><b>Click to expand</b></summary>
 
-app
-├── splash/ # SplashScreen (route)
-├── userlist/ # UserListScreen (route)
-├── userdetail/ # UserDetailScreen (route)
-└── _layout.tsx # Expo Router Stack layout
+-app
+-├── splash/ # SplashScreen (route)
+-├── userlist/ # UserListScreen (route)
+-├── userdetail/ # UserDetailScreen (route)
+-└── _layout.tsx # Expo Router Stack layout
 
-/src
-├── application/
-│ └── usecase/ # Use cases (Application Layer)
-├── data/
-│ ├── model/ # API DTOs (UserDto)
-│ ├── repository/ # Repository implementations
-│ └── source/ # Data sources (Remote/Local)
-├── domain/
-│ ├── model/ # Pure business models (User)
-│ └── repository/ # Repository interfaces
-└── presentation/
-└── common/ # Singleton selection holder, UI adapters
+-/src
+-├── application/
+-│ └── usecase/ # Use cases (Application Layer)
+-├── data/
+-│ ├── model/ # API DTOs (UserDto)
+-│ ├── repository/ # Repository implementations
+-│ └── source/ # Data sources (Remote/Local)
+-├── domain/
+-│ ├── model/ # Pure business models (User)
+-│ └── repository/ # Repository interfaces
+-└── presentation/
+-└── common/ # Singleton selection holder, UI adapters
 
-</details>
+-</details>
 
 ---
 
@@ -81,84 +81,69 @@ app
 
 ---
 
-## 🚦 Screenshots
-
-| Splash | User List | User Detail |
-|--------|-----------|-------------|
-| ![Splash](docs/splash.png) | ![List](docs/list.png) | ![Detail](docs/detail.png) |
-
----
-
 ## 🚀 How To Run
 
-1. Clone this repo:
-   ```sh
-   git clone https://github.com/yourname/CleanArchitectureDemoRN.git
-   cd CleanArchitectureDemoRN
+-1. Clone this repo:
+  
+    -git clone https://github.com/yourname/CleanArchitectureDemoRN.git
+   -cd CleanArchitectureDemoRN
 
-   Install dependencies:
+  - Install dependencies:
 
-sh
-Copy
-Edit
-npm install
+
+-npm install
 # or
-yarn
-Start Expo:
+-yarn
+-Start Expo:
 
-sh
-Copy
-Edit
-npx expo start
-Open on your simulator, device (Expo Go app), or web.
+-npx expo start
+-Open on your simulator, device (Expo Go app), or web.
 
-🧑‍💻 Code Flow Example
-SplashScreen loads → calls GetUsersUseCase
+## 🧑‍💻 Code Flow Example
+- SplashScreen loads → calls GetUsersUseCase
 
-GetUsersUseCase (application layer) calls UserRepository interface
+- GetUsersUseCase (application layer) calls UserRepository interface
 
-UserRepositoryImpl (data layer) loads from API/cache, converts DTOs to domain models
+- UserRepositoryImpl (data layer) loads from API/cache, converts DTOs to domain models
 
-UserListScreen displays all users, enables search, handles navigation
+- UserListScreen displays all users, enables search, handles navigation
 
-UserDetailScreen receives the user ID as param, fetches user from singleton cache
+- UserDetailScreen receives the user ID as param, fetches user from singleton cache
 
-🧪 Unit Testing
-This project is built for testability, though only core logic is covered in this demo.
+## 🧪 Unit Testing
+
+- This project is built for testability, though only core logic is covered in this demo.
 Suggested test locations:
 
-src/domain/model/user.test.ts
+- src/domain/model/user.test.ts
 
-src/application/usecase/get_users_usecase.test.ts
+- src/application/usecase/get_users_usecase.test.ts
 
-src/data/repository/user_repository_impl.test.ts
+- src/data/repository/user_repository_impl.test.ts
 
-Run all tests:
+##Run all tests:
 
-sh
-Copy
-Edit
 npm test
-# or
+or
 yarn test
-📐 Clean Architecture Diagram
-scss
-Copy
-Edit
-Presentation (Screens)
-         ↓
-Application (UseCase)
-         ↓
-Domain (Repository Interface, Model)
-         ↓
-Data (Repository Impl, Data Sources, DTOs)
-⚡ What Makes This Project Unique?
-Expo Router + Clean Architecture: A rare combo—most RN/Expo projects are MVC or “one big App.js.”
 
-Enterprise-inspired structure: Ready for feature scaling, CI/CD, and multi-team workflow.
+## Clean Architecture Diagram
 
-Easy to port: This architecture works in Flutter, Jetpack Compose, native Android/iOS, and web.
+- Presentation (Screens)
+         ↓
+- Application (UseCase)
+         ↓
+- Domain (Repository Interface, Model)
+         ↓
+- Data (Repository Impl, Data Sources, DTOs)
 
-🏷️ License
+## What Makes This Project Unique?
+- Expo Router + Clean Architecture: A rare combo—most RN/Expo projects are MVC or “one big App.js.”
+
+- Enterprise-inspired structure: Ready for feature scaling, CI/CD, and multi-team workflow.
+
+- Easy to port: This architecture works in Flutter, Jetpack Compose, native Android/iOS, and web.
+
+## 🏷️ License
 MIT License
 
