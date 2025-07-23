@@ -1,50 +1,78 @@
-# Welcome to your Expo app 👋
+# CleanArchitectureDemoRN (TypeScript)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A reference React Native app showing Clean Architecture in modern TypeScript, with real API data, offline caching, and professional navigation.
 
-## Get started
+---
 
-1. Install dependencies
+## ✨ Features
 
-   ```bash
-   npm install
-   ```
+- Splash, User List, and User Detail screens.
+- Loads users from JSONPlaceholder API.
+- Simple offline cache (AsyncStorage).
+- Pull-to-refresh, search, navigation.
+- Clean, maintainable architecture.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🏛️ Clean Architecture
 
-In the output, you'll find options to open the app in a
+- **Presentation:** React screens (no business/data logic)
+- **Application:** Use case orchestration
+- **Domain:** Pure models and repository interfaces
+- **Data:** API/cache/repository implementations
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🚀 How To Run
 
-## Get a fresh project
+1. Clone this repo.
+2. Run `npm install`.
+3. Start Metro: `npx expo start` or `npm start`.
+4. Run on device or emulator: `npx expo run:android` or use Expo Go.
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## 📂 Folder Structure
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+src/
+├── application/
+│   └── usecase/
+│       └── GetUsersUseCase.ts
+│
+├── data/
+│   ├── model/
+│   │   └── UserDto.ts
+│   ├── repository/
+│   │   └── UserRepositoryImpl.ts
+│   └── source/
+│       ├── UserRemoteDataSource.ts
+│       └── UserLocalDataSource.ts
+│
+├── domain/
+│   ├── model/
+│   │   └── User.ts
+│   └── repository/
+│       └── UserRepository.ts
+│
+└── presentation/
+├── common/
+├── splash/
+│   └── SplashScreen.tsx
+├── userdetail/
+│   └── UserDetailScreen.tsx
+└── userlist/
+└── UserListScreen.tsx
 
-## Learn more
+App.tsx
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🔗 Public API
 
-## Join the community
+- [JSONPlaceholder /users](https://jsonplaceholder.typicode.com/users)
 
-Join our community of developers creating universal apps.
+---
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 👨‍💻 Author
+
+- [Shafiul Alam Biplob](https://github.com/nillbiplob)
